@@ -1,0 +1,121 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ body {
+  background-image: url(dark-lines.jpg);
+
+ }
+
+ .pillar-title{
+  position:relative;
+  float:right;
+  right:13%;
+  top:-15%;
+  overflow:hidden;
+  font-size:40px;
+  font-family:fantasy
+ }
+
+ .apple-icon{
+  width:50px;
+  position:absolute;
+  left:50px;
+ }
+ .mindful-card, .mindful-card-add{
+   /* background-color: #28526D; */
+
+ }
+
+ .restore-card{
+  /* background-color: #A95639;
+  margin-top:-90px; */
+}
+
+.elong{
+  /* height: 800px;; */
+}
+
+
+#rcorners2 {
+  border-radius: 150px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  height: 200px;
+  z-index:-1;
+}
+
+
+#title{
+  visibility:hidden;
+}
+#contentile{
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 110px;
+  width:70%;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  height: 200px;
+  z-index:2;
+}
+div {
+  width: 100px;
+  height: 100px;
+  background: green;
+  -webkit-transition: width 2s; /* Safari */
+  transition: width 2s;
+}
+div h2{
+  color:white;
+  opacity: 0;
+  transition: color .5s, opacity .5s;
+}
+
+div:hover {
+width: 300px;
+}
+
+div:hover h2{
+  transition: color .5s, opacity .5s ;
+  opacity: 1;
+  transition-timing-function: ease-in;
+  -webkit-transition-delay: .5s; /* Safari */
+  transition-delay: 1s;
+}
+
+#extile{
+  width:300px;
+  height:200px;
+  position:absolute;
+  background: green;
+  border: 2px solid #73AD21;
+  top:-150px;
+  right:250px;
+  border-radius:150px;
+  transition: height 2s;
+}
+#extile:hover{  
+  height:300px;
+}
+#extile:hover p{
+  transition: color 1s;
+  transition-timing-function: ease-in;
+  -webkit-transition-delay: .5s; /* Safari */
+  transition-delay: 1s;
+  color:rgba(255,255,255,1);
+}
