@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" ref="">
+  <style>
+    #rcorners2 {
+    border-radius: 150px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    height: 200px;
+    z-index:-1;
+  }
+  #title{
+    visibility:hidden;
+  }
+  #contentile{
+  position: absolute;
+  left: 0px;
+  top: 110px;
+  width:70%;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  height: 200px;
+  z-index:2;
+}
+div {
+  width: 100px;
+  height: 100px;
+  background: green;
+  -webkit-transition: width 2s; /* Safari */
+  transition: width 2s;
+}
+h2{
+  color:rgba(255,255,255,0);
+  transition: color .5s;
+}
+div:hover {
+  width: 300px;
+}
+div:hover h2{
+  transition: color 1s;
+  transition-timing-function: ease-in;
+  -webkit-transition-delay: .5s; /* Safari */
+   transition-delay: 1s;
+  color:rgba(255,255,255,1);
+}
+#extile{
+  width:300px;
+  height:200px;
+  position:absolute;
+  background: green;
+  border: 2px solid #73AD21;
+  top:-150px;
+  right:250px;
+  border-radius:150px;
+    transition: height 2s;
+}
+#extile:hover{
+  height:300px;
+}
+#extile:hover p{
+  transition: color 1s;
+  transition-timing-function: ease-in;
+  -webkit-transition-delay: .5s; /* Safari */
+   transition-delay: 1s;
+  color:rgba(255,255,255,1);
+}
+    </style>
+</head>
+
+<body>
+<div id="rcorners2">
+  <%=image_tag("icon")%>
+<img src="apple.png" style="width:50px;position:absolute;left:50px;">
+<h2 style="position:relative;float:right;right:13%;top:-15%;overflow:hidden;font-size:40px;font-family:fantasy;">Nutrition</h2>
+</div>
+<div id="contentile" style="overflow:hidden;">
+  <div id="extile" style="">
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <p>some content</p>
+    </div>
+  </div>
+
+</body>
+</html>
