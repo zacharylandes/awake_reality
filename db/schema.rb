@@ -10,10 +10,99 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_144914) do
+ActiveRecord::Schema.define(version: 2019_03_01_215146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "affiliates", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pillars", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pillars_posts", force: :cascade do |t|
+    t.bigint "pillar_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pillar_id"], name: "index_pillars_posts_on_pillar_id"
+    t.index ["post_id"], name: "index_pillars_posts_on_post_id"
+  end
+
+  create_table "pillars_tasks", force: :cascade do |t|
+    t.bigint "pillar_id"
+    t.bigint "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pillar_id"], name: "index_pillars_tasks_on_pillar_id"
+    t.index ["task_id"], name: "index_pillars_tasks_on_task_id"
+  end
+
+  create_table "pillars_topics", force: :cascade do |t|
+    t.bigint "topic_id"
+    t.bigint "pillar_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pillar_id"], name: "index_pillars_topics_on_pillar_id"
+    t.index ["topic_id"], name: "index_pillars_topics_on_topic_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts_tasks", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_posts_tasks_on_post_id"
+    t.index ["task_id"], name: "index_posts_tasks_on_task_id"
+  end
+
+  create_table "posts_topics", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_posts_topics_on_post_id"
+    t.index ["topic_id"], name: "index_posts_topics_on_topic_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks_topics", force: :cascade do |t|
+    t.bigint "task_id"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_tasks_topics_on_task_id"
+    t.index ["topic_id"], name: "index_tasks_topics_on_topic_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +116,16 @@ ActiveRecord::Schema.define(version: 2019_02_11_144914) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pillars_posts", "pillars"
+  add_foreign_key "pillars_posts", "posts"
+  add_foreign_key "pillars_tasks", "pillars"
+  add_foreign_key "pillars_tasks", "tasks"
+  add_foreign_key "pillars_topics", "pillars"
+  add_foreign_key "pillars_topics", "topics"
+  add_foreign_key "posts_tasks", "posts"
+  add_foreign_key "posts_tasks", "tasks"
+  add_foreign_key "posts_topics", "posts"
+  add_foreign_key "posts_topics", "topics"
+  add_foreign_key "tasks_topics", "tasks"
+  add_foreign_key "tasks_topics", "topics"
 end
